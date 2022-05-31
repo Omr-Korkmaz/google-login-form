@@ -28,14 +28,20 @@ const Navbar = () => {
     font-weight: 500;
     cursor: pointer;
   `;
+  const Avatar = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  `
 
   return (
     <Navbar>
       <Logo>SAMPLE APP</Logo>
 
-      <List className="list">
-        <ListItem className="listItem">
-          <img alt="" className="avatar" />
+      <List>
+        <ListItem>
+          <Avatar src={'https://images.unsplash.com/photo-1648737966100-18f790c93a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3174&q=80'} />
         </ListItem>
         <ListItem>Someone</ListItem>
         <ListItem>Logout</ListItem>
