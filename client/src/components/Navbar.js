@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const Navbar = ({user}) => {
+const Navbar = ({ user }) => {
   const Navbar = styled.div`
     height: 70px;
     background-color: #f58442;
@@ -34,29 +34,26 @@ const Navbar = ({user}) => {
     object-fit: cover;
   `;
   const StyledLink = styled(Link)`
-  color: inherit;
-  text-decoration: none;
-  `
-
+    color: inherit;
+    text-decoration: none;
+  `;
+  const logout = () => {
+    window.open("http://localhost:4000/auth/logout", "_self");
+  };
   return (
     <Navbar>
       <Logo>
         {" "}
         <StyledLink to="/"> Sample LOGO</StyledLink>
       </Logo>
-{user ? (
-
-      <List>
-        <ListItem>
-          <Avatar
-            src={
-              "https://images.unsplash.com/photo-1648737966100-18f790c93a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3174&q=80"
-            }
-            />
-        </ListItem>
-        <ListItem>Someone</ListItem>
-        <ListItem>Logout</ListItem>
-      </List>
+      {user ? (
+        <List>
+          <ListItem>
+            <Avatar src={user.photos[0].value} />
+          </ListItem>
+          <ListItem>{user.displayName}</ListItem>
+          <ListItem onClick={logout}>Logout</ListItem>
+        </List>
       ) : (
         <StyledLink to="/login"> Login</StyledLink>
       )}

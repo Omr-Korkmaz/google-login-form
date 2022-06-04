@@ -112,12 +112,17 @@ const Login = () => {
     color: gray;
   `;
 
+
+const google = () => {
+    window.open("http://localhost:4000/auth/google", "_self");
+  };
+
   return (
     <Login>
       <LoginTitle>Sign in</LoginTitle>
       <Wrapper>
         <LeftSide>
-          <Google>Google</Google>
+          <Google onClick={google} >Google</Google>
           <Facebook>Facebook</Facebook>
           <Github>Github</Github>
         </LeftSide>
