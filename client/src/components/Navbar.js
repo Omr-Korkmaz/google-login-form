@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({user}) => {
   const Navbar = styled.div`
     height: 70px;
-    background-color: plum;
+    background-color: #f58442;
     color: white;
     display: flex;
     align-items: center;
@@ -32,10 +33,18 @@ const Navbar = () => {
     border-radius: 50%;
     object-fit: cover;
   `;
+  const StyledLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+  `
 
   return (
     <Navbar>
-      <Logo>SAMPLE APP</Logo>
+      <Logo>
+        {" "}
+        <StyledLink to="/"> Sample LOGO</StyledLink>
+      </Logo>
+{user ? (
 
       <List>
         <ListItem>
@@ -43,11 +52,14 @@ const Navbar = () => {
             src={
               "https://images.unsplash.com/photo-1648737966100-18f790c93a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3174&q=80"
             }
-          />
+            />
         </ListItem>
         <ListItem>Someone</ListItem>
         <ListItem>Logout</ListItem>
       </List>
+      ) : (
+        <StyledLink to="/login"> Login</StyledLink>
+      )}
     </Navbar>
   );
 };

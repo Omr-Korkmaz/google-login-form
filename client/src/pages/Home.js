@@ -5,8 +5,9 @@ import styled from "styled-components";
 
 const Home = () => {
   const HomeContainer = styled.div`
-    display: flex;
-    justify-content: center;
+   display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   `;
 
   return (

@@ -9,9 +9,10 @@ const Login = () => {
   `;
 
   const Wrapper = styled.div`
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     width: 60%;
     height: 45%;
-    box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
     display: flex;
     align-items: center;
     border-radius: 20px;
@@ -82,19 +83,29 @@ const Login = () => {
   `;
 
   const Input = styled.input`
-    width: 200px;
+    border-radius: 20px;
+    width: 250px;
     padding: 15px 20px;
     margin-bottom: 20px;
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
   `;
   const Submit = styled.button`
-    width: 200px;
-    background-color: purple;
-    color: white;
-    font-weight: bold;
+    margin: 10px 0px;
+    border-radius: 20px;
+    background-color: #ff4b2b;
     border: none;
-    padding: 15px 20px;
-    border-radius: 5px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 50px;
+    letter-spacing: 1.2px;
+    &:hover {
+      background-color: palevioletred;
+    }
   `;
+
   const LoginTitle = styled.h1`
     position: absolute;
     top: 250px;
@@ -103,7 +114,7 @@ const Login = () => {
 
   return (
     <Login>
-      <LoginTitle>Login Method</LoginTitle>
+      <LoginTitle>Sign in</LoginTitle>
       <Wrapper>
         <LeftSide>
           <Google>Google</Google>

@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import dumydata from "../dumydata";
 
@@ -32,13 +33,21 @@ const Post = () => {
     line-height: 24px;
   `;
 
+
+const location = useLocation();
+const path = location.pathname.split("/")[2];
+
+const post = dumydata.find((post) => post.id.toString() === path);
+
+console.log(location);
+
   return (
     <Post>
-      <PostImg src={dumydata[1].img} />
+      <PostImg src={post.img} />
 
-      <PostTitle>{dumydata[1].title}</PostTitle>
-      <PostDesc>{dumydata[1].desc}</PostDesc>
-      <PostLongDesc>{dumydata[1].longDesc}</PostLongDesc>
+      <PostTitle>{post.title}</PostTitle>
+      <PostDesc>{post.desc}</PostDesc>
+      <PostLongDesc>{post.longDesc}</PostLongDesc>
     </Post>
   );
 };
