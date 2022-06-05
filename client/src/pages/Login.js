@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import GoogleIcon from '@mui/icons-material/Google';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import GitHubIcon from '@mui/icons-material/GitHub';
+
 
 const Login = () => {
   const Login = styled.div`
@@ -9,13 +13,25 @@ const Login = () => {
   `;
 
   const Wrapper = styled.div`
-    border-radius: 10px;
+
+border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    width: 60%;
+    width: 40%;
     height: 45%;
+    flex-direction: column;
     display: flex;
     align-items: center;
     border-radius: 20px;
+
+  
+  
+  `;
+    const IconWrapper = styled.div`
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    $
   `;
 
   const LeftSide = styled.div`
@@ -61,25 +77,29 @@ const Login = () => {
   `;
 
   const LoginButton = styled.div`
-    width: 150px;
-    padding: 15px 25px;
-    border-radius: 5px;
-    color: white;
-    display: flex;
+   
+border: 1px solid black;
+padding: 10px;
     align-items: center;
     font-weight: bold;
-    margin-bottom: 20px;
+
+    margin: 50px 10px 10px 10px;
     cursor: pointer;
+    &:hover {
+      background-color: green;
+      border-color: green;
+    }
   `;
 
   const Google = styled(LoginButton)`
-    background-color: #df4930;
+
+    border-radius: 50%;
   `;
   const Facebook = styled(LoginButton)`
-    background-color: #507cc0;
+    border-radius: 50%;
   `;
   const Github = styled(LoginButton)`
-    background-color: black;
+    border-radius: 50%;
   `;
 
   const Input = styled.input`
@@ -121,20 +141,16 @@ const google = () => {
     <Login>
       <LoginTitle>Sign in</LoginTitle>
       <Wrapper>
-        <LeftSide>
-          <Google onClick={google} >Google</Google>
-          <Facebook>Facebook</Facebook>
-          <Github>Github</Github>
-        </LeftSide>
-        <Center>
-          <Line />
-          <Or>OR</Or>
-        </Center>
-        <RightSide>
+      <IconWrapper>
+
+          <Google onClick={google} > <GoogleIcon/> </Google>
+          <Facebook><FacebookIcon /> </Facebook>
+          <Github><GitHubIcon/></Github>
+      </IconWrapper>
+       
           <Input type="text" placeholder="Username" />
           <Input type="text" placeholder="Password" />
           <Submit className="submit">Login</Submit>
-        </RightSide>
       </Wrapper>
     </Login>
   );
