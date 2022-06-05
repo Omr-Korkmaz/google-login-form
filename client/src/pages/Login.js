@@ -1,98 +1,53 @@
 import styled from "styled-components";
-import GoogleIcon from '@mui/icons-material/Google';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import GitHubIcon from '@mui/icons-material/GitHub';
-
+import GoogleIcon from "@mui/icons-material/Google";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const Login = () => {
   const Login = styled.div`
-    height: calc(100vh - 200px);
+  
     display: flex;
     align-items: center;
     justify-content: center;
   `;
 
   const Wrapper = styled.div`
-
-border-radius: 10px;
+  margin:30px;
+    border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    width: 40%;
-    height: 45%;
+    width: 500px;
+    height: 500px;
     flex-direction: column;
     display: flex;
     align-items: center;
     border-radius: 20px;
-
-  
-  
   `;
-    const IconWrapper = styled.div`
-    border-radius: 10px;
+  const IconWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: center;
-    $
-  `;
-
-  const LeftSide = styled.div`
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  `;
-  const RightSide = styled.div`
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  `;
-  const Center = styled.div`
-    height: 100%;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    position: relative;
-  `;
-
-  const Or = styled.div`
-    border: 2px solid lightgray;
-    border-radius: 50%;
-    padding: 10px;
-    color: gray;
-    background-color: white;
-    font-weight: bold;
-  `;
-
-  const Line = styled.div`
-    width: 0.5px;
-    height: 70%;
-    background-color: lightgray;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    z-index: -1;
+    align-items: center;
   `;
 
   const LoginButton = styled.div`
-   
-border: 1px solid black;
-padding: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
     align-items: center;
     font-weight: bold;
+    width: 20px;
+    height: 20px;
 
-    margin: 50px 10px 10px 10px;
+    margin: 4px 15px;
     cursor: pointer;
     &:hover {
-      background-color: green;
-      border-color: green;
+      background-color: gray;
+      border: 1px solid green;
     }
   `;
 
   const Google = styled(LoginButton)`
-
     border-radius: 50%;
   `;
   const Facebook = styled(LoginButton)`
@@ -112,7 +67,7 @@ padding: 10px;
     margin: 8px 0;
   `;
   const Submit = styled.button`
-    margin: 10px 0px;
+    margin: 4px 0px;
     border-radius: 20px;
     background-color: #ff4b2b;
     border: none;
@@ -122,35 +77,53 @@ padding: 10px;
     padding: 12px 50px;
     letter-spacing: 1.2px;
     &:hover {
-      background-color: palevioletred;
+      background-color: green;
     }
   `;
 
   const LoginTitle = styled.h1`
-    position: absolute;
-    top: 250px;
     color: gray;
   `;
 
+  const LoginText = styled.p`
+    color: gray;
 
-const google = () => {
+    font-size: 1rem;
+  `;
+  const ForgetText = styled(LoginText)`
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      color: green;
+    }
+  `;
+
+  const google = () => {
     window.open("http://localhost:4000/auth/google", "_self");
   };
 
   return (
     <Login>
-      <LoginTitle>Sign in</LoginTitle>
       <Wrapper>
-      <IconWrapper>
-
-          <Google onClick={google} > <GoogleIcon/> </Google>
-          <Facebook><FacebookIcon /> </Facebook>
-          <Github><GitHubIcon/></Github>
-      </IconWrapper>
-       
-          <Input type="text" placeholder="Username" />
-          <Input type="text" placeholder="Password" />
-          <Submit className="submit">Login</Submit>
+        <LoginTitle>Sign in</LoginTitle>
+        <IconWrapper>
+          <Google onClick={google}>
+            {" "}
+            <GoogleIcon />{" "}
+          </Google>
+          <Facebook>
+            <FacebookIcon />{" "}
+          </Facebook>
+          <Github>
+            <GitHubIcon />
+          </Github>
+        </IconWrapper>
+        <LoginText> or use your account</LoginText>
+        <Input type="text" placeholder="Username" />
+        <Input type="text" placeholder="Password" />
+        <ForgetText>forget password</ForgetText>
+        <Submit className="submit">Login</Submit>
       </Wrapper>
     </Login>
   );
